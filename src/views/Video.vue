@@ -27,7 +27,7 @@
                 <table>
                     <tr v-for="(i, index) in videoCast" :key="index">
                         <th>
-                            {{videoCast[index].role}}
+                            {{videoCast[index].role}} 
                         </th>
                         <td style="padding-left:20px;">
                             {{videoCast[index].name}}
