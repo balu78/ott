@@ -6,7 +6,6 @@ import App from './App.vue'
 import router from './router'
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
-import '../src/assets/swiper/swiper-bundle.css'
 import VueCarousel from 'vue-carousel';
 
 Vue.use(VueCarousel);

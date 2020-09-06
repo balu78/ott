@@ -1,5 +1,6 @@
 <template>
     <div>
+        <h3 style="margin-top:15px;margin-left:20px;">Movies</h3>
         <div class="background">
             <div class="carousel">
             <div @click="previous()" class="carousel__control carousel__control--previous">

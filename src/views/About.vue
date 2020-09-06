@@ -1,127 +1,112 @@
 <template>
-  <div class="background">
-    <div class="carousel">
-      <div @click="previous()" class="carousel__control carousel__control--previous">
-        <i class="fa fa-arrow-left"></i>
-      </div>
-      <ul>
-        <li v-for="item in items" :key="item" class="carousel__item">
-          <img :src="item"/>
-        </li>
-      </ul>
-      <div @click="next()" class="carousel__control carousel__control--next">
-        <i class="fa fa-arrow-right"></i>
-      </div>
-    </div>
-  </div>
+    <carousel 
+        :nav= "false"
+        :dots= "false"
+        :responsive="{
+          0:{
+            items: 1
+          },
+          600:{
+            items: 3
+          },
+          1000:{
+            items: 4
+          },
+          1200:{
+            items: 5
+          }
+        }"
+    >
+        <template slot="prev">
+          <img src="https://img.icons8.com/metro/40/000000/long-arrow-left.png"/>
+        </template>
+        <div class="item">
+          1  
+        </div>
+        <div class="item">
+          2 
+        </div>
+        <div class="item">
+          3 
+        </div>
+        <div class="item">
+          4 
+        </div>
+        <div class="item">
+          5
+        </div>
+        <div class="item">
+          6 
+        </div>
+        <div class="item">
+          7  
+        </div>
+        <div class="item">
+          3 
+        </div>
+        <div class="item">
+          4 
+        </div>
+        <div class="item">
+          5
+        </div>
+        <div class="item">
+          6 
+        </div>
+        <div class="item">
+          7  
+        </div>
+        <template slot="next">
+          <img src="https://img.icons8.com/metro/40/000000/long-arrow-right.png"/>
+        </template>
+    </carousel>
 </template>
 
 <script>
+import carousel from 'vue-owl-carousel'
 export default {
-  
-  data: function () {
-    return {
-      items: [
-        'https://picsum.photos/500/301', 
-        'https://picsum.photos/500/300',
-        'https://picsum.photos/500/300?random',
-        'https://picsum.photos/510/300?random',
-        'https://picsum.photos/500/301', 
-        'https://picsum.photos/500/300',
-        'https://picsum.photos/500/300?random',
-        'https://picsum.photos/510/300?random',
-        'https://picsum.photos/500/301', 
-        'https://picsum.photos/500/300',
-        'https://picsum.photos/500/300?random',
-        'https://picsum.photos/510/300?random',
-        'https://picsum.photos/500/301', 
-        'https://picsum.photos/500/300',
-        'https://picsum.photos/500/300?random',
-        'https://picsum.photos/510/300?random',
-        'https://picsum.photos/500/301', 
-        'https://picsum.photos/500/300',
-        'https://picsum.photos/500/300?random',
-        'https://picsum.photos/510/300?random',
-      ]
+    components: { carousel },
+    data(){
+      return{
+      }
     }
-  },
-  methods: {
-    next: function () {
-      this.items.push(this.items.shift())
-    },
-    previous: function () {
-      this.items.unshift(this.items.pop())
-    }
-  }
 }
 </script>
 
-<style lang="scss" scoped>
-$amount-items--desktop: 5;
-$amount-items--tablet: 3;
-$amount-items--mobile: 2; 
- 
-// colors
-$background-color: #ffffff;
-$hover-color: #0000006e;
-$color: #ffffff;
+<style scoped>
+ .prev{
+   height: 200px;
+    background: green;
+    width: 2%;
+    position: absolute;
+    left: 0;
+ }
 
-// responsive mixins
-@mixin tablet {
-  @media (min-width: 768px) {
-    @content;
-  }
-}
-@mixin desktop {
-  @media (min-width: 1024px) {
-    @content;
-  }
-}
-.background {
-  display: flex;
-  align-self: center;
-}
-.carousel {
-  margin-top: 10px;
-  width: 100%;
-  height: 12em;
-  display: flex;
-  color: $color;
-  
-  &__control {
+ .next{
+   height: 200px;
+    background: green;
+    width: 2%;
+    position: absolute;
+    right: 0;
+ }
+
+ .item{
+   margin: 3px;
+   height: 170px;
+   width: 98%;
+   background-color: aqua;
+   color: white;
+   justify-content: center;
+   align-items: center;
+ }
+ .owl-carousel.owl-loaded {
     display: flex;
-    width: 100%;
-    background-color: $background-color;
-    align-items: center;
-    justify-content: center;
-    
-    &:hover {
-      cursor: pointer;
-      background-color: $hover-color;
-    }
-  }
-  
-  & ul {
-    display: flex;
-    width: 98%;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  &__item {
-    width: 20%;
-    & img {
-      height: 100%;
-      border-radius: 10%;
-      padding:2px;
-      width: 282px;
-      &:hover{
-        transform: scale(1.2);
-        z-index: 1;
-        transition: .5s ease;
-      }
-    }
-  }
+    width: 96%;
+    left: 2%;
+ }
+ .owl-carousel .owl-stage-outer {
+    width: 96%;
+    margin-left: 27px;
 }
+ 
 </style>
